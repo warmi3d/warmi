@@ -51,7 +51,7 @@ header p {
 
 .product img {
   height: 400px;
-  height: auto;
+  width: auto;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s ease-in-out;
