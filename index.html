@@ -63,34 +63,31 @@
 </body>
 </html>
 
-
 <script>
   const track = document.querySelector('.carousel-track');
+  const items = document.querySelectorAll('.product');
   const prevButton = document.querySelector('.carousel-button.prev');
   const nextButton = document.querySelector('.carousel-button.next');
 
-  const totalItems = document.querySelectorAll('.product').length;
   const visibleItems = 4;
+  const totalItems = items.length;
   let currentIndex = 0;
 
   function updateCarousel() {
-    const itemWidth = track.clientWidth / visibleItems;
+    const itemWidth = items[0].getBoundingClientRect().width;
     track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
   }
 
   nextButton.addEventListener('click', () => {
-    if (currentIndex < totalItems - visibleItems) {
-      currentIndex++;
-      updateCarousel();
-    }
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
   });
 
   prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
+    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    updateCarousel();
   });
 
   window.addEventListener('resize', updateCarousel);
+  window.addEventListener('load', updateCarousel);
 </script>
