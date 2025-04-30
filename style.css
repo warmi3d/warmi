@@ -26,13 +26,14 @@ header p {
   background: #ffffff;
   color: #1e90ff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 15px;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.5s;
 }
 
 .olx-button:hover {
-  background: #e0e0e0;
+  background: #a0a070;
+  color: #BAD5FF;
 }
 
 .gallery {
