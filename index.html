@@ -62,3 +62,35 @@
   </footer>
 </body>
 </html>
+
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+
+  const totalItems = document.querySelectorAll('.product').length;
+  const visibleItems = 4;
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const itemWidth = track.clientWidth / visibleItems;
+    track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  }
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < totalItems - visibleItems) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener('resize', updateCarousel);
+</script>
