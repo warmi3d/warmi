@@ -72,3 +72,37 @@ footer {
   background: #ddd;
   font-size: 0.9rem;
 }
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-detail img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  text-align: left;
+}
+
+.description h2 {
+  margin-top: 0;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
