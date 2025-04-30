@@ -1,3 +1,4 @@
+/* Ogólne resetowanie i styl podstawowy */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -35,13 +36,25 @@ header p {
   background: #e0e0e0;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 2rem;
-  max-width: 400px;
+/* Styl karuzeli */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: calc(100% * 1.5); /* sztucznie rozszerzamy, żeby była przestrzeń do przesuwania */
+}
+
+.product {
+  flex: 0 0 25%; /* 4 elementy w rzędzie */
+  box-sizing: border-box;
+  padding: 0 0.5rem;
 }
 
 .product a {
@@ -50,15 +63,15 @@ header p {
 }
 
 .product img {
-  height: 400px;
-  width: auto;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s ease-in-out;
 }
 
 .product img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .product p {
@@ -67,12 +80,35 @@ header p {
   font-size: 1rem;
 }
 
-footer {
-  padding: 1rem;
-  background: #ddd;
-  font-size: 0.9rem;
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e90ff;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+  opacity: 0.8;
+  user-select: none;
 }
 
+.carousel-button:hover {
+  opacity: 1;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/* Strona produktu (opcjonalna) */
 .product-detail {
   display: flex;
   flex-direction: column;
@@ -83,7 +119,7 @@ footer {
 }
 
 .product-detail img {
-  max-height: 500px;
+  max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin-bottom: 1.5rem;
@@ -107,49 +143,27 @@ footer {
   text-decoration: underline;
 }
 
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+footer {
+  padding: 1rem;
+  background: #ddd;
+  font-size: 0.9rem;
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
+/* Responsywność */
+@media (max-width: 1024px) {
+  .product {
+    flex: 0 0 33.33%;
+  }
 }
 
-.product {
-  flex: 0 0 25%; /* 100% / 4 = 25% */
-  box-sizing: border-box;
-  padding: 0 0.5rem;
+@media (max-width: 768px) {
+  .product {
+    flex: 0 0 50%;
+  }
 }
 
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #1e90ff;
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 5px;
-  opacity: 0.8;
+@media (max-width: 480px) {
+  .product {
+    flex: 0 0 100%;
+  }
 }
-
-.carousel-button:hover {
-  opacity: 1;
-}
-
-.carousel-button.prev {
-  left: 10px;
-}
-
-.carousel-button.next {
-  right: 10px;
-}
-
