@@ -40,7 +40,7 @@ header p {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -106,3 +106,50 @@ footer {
 .back-link:hover {
   text-decoration: underline;
 }
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.product {
+  flex: 0 0 25%; /* 100% / 4 = 25% */
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e90ff;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.carousel-button:hover {
+  opacity: 1;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
