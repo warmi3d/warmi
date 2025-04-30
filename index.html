@@ -65,29 +65,60 @@
 
 <script>
   const track = document.querySelector('.carousel-track');
-  const items = document.querySelectorAll('.product');
+  const items = Array.from(document.querySelectorAll('.product'));
   const prevButton = document.querySelector('.carousel-button.prev');
   const nextButton = document.querySelector('.carousel-button.next');
 
   const visibleItems = 4;
-  const totalItems = items.length;
-  let currentIndex = 0;
+  let currentIndex = visibleItems;
 
-  function updateCarousel() {
-    const itemWidth = items[0].getBoundingClientRect().width;
-    track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  // 1. Klonujemy ostatnie i pierwsze elementy
+  const clonesBefore = items.slice(-visibleItems).map(item => item.cloneNode(true));
+  const clonesAfter = items.slice(0, visibleItems).map(item => item.cloneNode(true));
+
+  clonesBefore.forEach(clone => track.prepend(clone));
+  clonesAfter.forEach(clone => track.append(clone));
+
+  const allItems = Array.from(document.querySelectorAll('.product'));
+  const itemWidth = () => allItems[0].getBoundingClientRect().width;
+
+  function updateCarousel(animate = true) {
+    if (!animate) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform 0.4s ease-in-out';
+    }
+    track.style.transform = `translateX(-${currentIndex * itemWidth()}px)`;
   }
 
   nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalItems;
+    if (currentIndex >= allItems.length - visibleItems) return;
+    currentIndex++;
     updateCarousel();
+
+    // Jeśli jesteśmy na końcu, przeskocz do prawdziwego 1
+    setTimeout(() => {
+      if (currentIndex === allItems.length - visibleItems) {
+        currentIndex = visibleItems;
+        updateCarousel(false);
+      }
+    }, 400);
   });
 
   prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    if (currentIndex <= 0) return;
+    currentIndex--;
     updateCarousel();
+
+    // Jeśli jesteśmy na początku, przeskocz do prawdziwego końca
+    setTimeout(() => {
+      if (currentIndex === 0) {
+        currentIndex = allItems.length - (2 * visibleItems);
+        updateCarousel(false);
+      }
+    }, 400);
   });
 
-  window.addEventListener('resize', updateCarousel);
-  window.addEventListener('load', updateCarousel);
+  window.addEventListener('resize', () => updateCarousel(false));
+  window.addEventListener('load', () => updateCarousel(false));
 </script>
