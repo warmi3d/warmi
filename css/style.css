@@ -231,6 +231,12 @@ main {
 }
 
 /* Pierwsza kolumna - tekst */
+.center {
+  text-align: center; /* Tekst będzie wycentrowany */
+  flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
+}
+
+/* Pierwsza kolumna - tekst */
 .left-column {
   text-align: center; /* Tekst będzie wycentrowany */
   flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
