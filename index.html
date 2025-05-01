@@ -3,123 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wydruki Warmi 3D</title>
+  <title>Warmi3D</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
   <header>
-    <h1>Wydruki Warmi 3D</h1>
-    <p>Zapraszam do zapoznania się z moimi modelami 3D</p>
-    <a href="https://www.olx.pl" class="olx-button" target="_blank">Zobacz na OLX</a>
+    <table>
+      <tr>
+        <td>
+          <h1>Wydruki Warmi 3D</h1>
+          <p>Zapraszam do zapoznania się z moimi modelami 3D</p>
+          <a href="https://www.olx.pl" class="olx-button" target="_blank">Zobacz na OLX</a>        
+        </td>
+        <td>
+          <img src="images/Warmi3DLogo.png" alt="Warmi3D logo" class="logo">
+        </td>
+      </tr>
+    </table>
+    
   </header>
+  <main>
+    <div class="grid">
+      <div class="product">
+        <a href="produkty/produktA.html">
+          <img src="images/Zestaw_Niebieski_Key_Rekin_Smok01.jpg" alt="Produkt A">
+          <p>Produkt A</p>
+        </a>
+      </div>
+      <div class="product">
+        <a href="produkty/produktB.html">
+          <img src="images/Zestaw_Zielony_Key_Rekin01.jpg" alt="Produkt B">
+          <p>Produkt B</p>
+        </a>
+      </div>
+      <div class="product">
+        <a href="produkty/produktC.html">
+          <img src="images/Zestaw_Zielony_Key_Rekin01.jpg" alt="Produkt C">
+          <p>Produkt C</p>
+        </a>
+      </div>
+      <div class="product">
+        <a href="produkty/produktD.html">
+          <img src="images/Zestaw_Zielony_Key_Rekin01.jpg" alt="Produkt D">
+          <p>Produkt D</p>
+        </a>
+      </div>
+    </div>
+  <div class="grid">
+      <div class="product">
+        <a href="produkty/produktE.html">
+          <img src="images/Zestaw_Zielony_Key_Rekin01.jpg" alt="Produkt E">
+          <p>Produkt E</p>
+        </a>
+      </div>
+    </div>
+  </main>
 
-  <main class="carousel-container">
-  <button class="carousel-button prev">&#10094;</button>
-
-  <div class="carousel-track">
-    <div class="product">
-      <a href="produkt1.html">
-        <img src="Zestaw_Niebieski_Key_Rekin_Smok01.jpg" alt="Zestaw 1" />
-        <p>Zestaw 1</p>
-      </a>
-    </div>
-    <div class="product">
-      <a href="produkt2.html">
-        <img src="Zestaw_Niebieski_Key_Rekin_Smok02.jpg" alt="Zestaw 2" />
-        <p>Zestaw 2</p>
-      </a>
-    </div>
-    <div class="product">
-      <a href="produkt3.html">
-        <img src="Zestaw_Niebieski_Key_Rekin_Smok01.jpg" alt="Zestaw 3" />
-        <p>Zestaw 3</p>
-      </a>
-    </div>
-    <div class="product">
-      <a href="produkt4.html">
-        <img src="Zestaw_Niebieski_Key_Rekin_Smok02.jpg" alt="Zestaw 4" />
-        <p>Zestaw 4</p>
-      </a>
-    </div>
-    <div class="product">
-      <a href="produkt5.html">
-        <img src="Zestaw_Niebieski_Key_Rekin_Smok01.jpg" alt="Zestaw 5" />
-        <p>Zestaw 5</p>
-      </a>
-    </div>
-    <div class="product">
-      <a href="produkt6.html">
-        <img src="Zestaw_Niebieski_Key_Rekin_Smok02.jpg" alt="Zestaw 6" />
-        <p>Zestaw 6</p>
-      </a>
-    </div>
-  </div>
-
-  <button class="carousel-button next">&#10095;</button>
-</main>
   <footer>
     <p>&copy; 2025 Warmi | Wydruki 3D</p>
   </footer>
 </body>
 </html>
 
-<script>
-  const track = document.querySelector('.carousel-track');
-  const items = Array.from(document.querySelectorAll('.product'));
-  const prevButton = document.querySelector('.carousel-button.prev');
-  const nextButton = document.querySelector('.carousel-button.next');
 
-  const visibleItems = 4;
-  let currentIndex = visibleItems;
-
-  // 1. Klonujemy ostatnie i pierwsze elementy
-  const clonesBefore = items.slice(-visibleItems).map(item => item.cloneNode(true));
-  const clonesAfter = items.slice(0, visibleItems).map(item => item.cloneNode(true));
-
-  clonesBefore.forEach(clone => track.prepend(clone));
-  clonesAfter.forEach(clone => track.append(clone));
-
-  const allItems = Array.from(document.querySelectorAll('.product'));
-  const itemWidth = () => allItems[0].getBoundingClientRect().width;
-
-  function updateCarousel(animate = true) {
-    if (!animate) {
-      track.style.transition = 'none';
-    } else {
-      track.style.transition = 'transform 0.4s ease-in-out';
-    }
-    track.style.transform = `translateX(-${currentIndex * itemWidth()}px)`;
-  }
-
-  nextButton.addEventListener('click', () => {
-    if (currentIndex >= allItems.length - visibleItems) return;
-    currentIndex++;
-    updateCarousel();
-
-    // Jeśli jesteśmy na końcu, przeskocz do prawdziwego 1
-    setTimeout(() => {
-      if (currentIndex === allItems.length - visibleItems) {
-        currentIndex = visibleItems;
-        updateCarousel(false);
-      }
-    }, 400);
-  });
-
-  prevButton.addEventListener('click', () => {
-    if (currentIndex <= 0) return;
-    currentIndex--;
-    updateCarousel();
-
-    // Jeśli jesteśmy na początku, przeskocz do prawdziwego końca
-    setTimeout(() => {
-      if (currentIndex === 0) {
-        currentIndex = allItems.length - (2 * visibleItems);
-        updateCarousel(false);
-      }
-    }, 400);
-  });
-
-  window.addEventListener('resize', () => updateCarousel(false));
-  window.addEventListener('load', () => updateCarousel(false));
-</script>
