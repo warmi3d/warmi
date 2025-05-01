@@ -20,7 +20,7 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 1rem 0.5rem 0.5rem; /* góra, lewo/prawo, dół */
+  padding: 0.5rem 0.5rem 0.5rem 1rem; /* góra, lewo/prawo, dół */
 }
 
 .product a {
