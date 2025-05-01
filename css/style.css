@@ -241,8 +241,8 @@ header p {
 }
 
 .logo {
-  max-height: 70%; /* Zapewnia, że obrazek nie przekroczy szerokości kontenera */
-  width: auto;
+  max-width: 100%
+  height: auto;
 }
 
 body {
