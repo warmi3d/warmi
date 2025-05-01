@@ -231,7 +231,7 @@ main {
 }
 
 /* Pierwsza kolumna - tekst */
-.center {
+.center-column {
   text-align: center; /* Tekst będzie wycentrowany */
   flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
 }
