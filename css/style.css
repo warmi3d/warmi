@@ -129,12 +129,8 @@ footer {
     flex: 0 0 100%;
   }
 }
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
+
+
 
 header {
   background-color: #ffffff;
@@ -184,7 +180,6 @@ main {
   }
 }
 
-
 .carousel {
   position: relative;
   max-width: 600px;
@@ -227,6 +222,18 @@ main {
   border-radius: 10px;
 }
 
+header {
+  background: #1e90ff;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 0.5rem 0 1rem;
+}
 
 /* Kontener dla obu kolumn */
 .container {
@@ -238,14 +245,7 @@ main {
 }
 
 /* Pierwsza kolumna - tekst */
-.center-column {
-  text-align: center; /* Tekst będzie wycentrowany */
-  flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
-}
-
-/* Pierwsza kolumna - tekst */
 .left-column {
-  background: #1e90ff;
   text-align: center; /* Tekst będzie wycentrowany */
   flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
 }
@@ -258,30 +258,18 @@ main {
 .logo {
   max-width: 100%; /* Zapewnia, że obrazek nie przekroczy szerokości kontenera */
   height: auto;
-  background: #000000;
+  background: #ffffff;
 }
 
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   background: #f4f4f4;
   color: #333;
   text-align: center;
 }
-
-header {
-  color: white;
-  padding: 2rem 1rem;
-}
-
-header h1 {
-  margin: 0;
-}
-
-header p {
-  margin: 0.5rem 0 1rem;
-}
-
+  
 .olx-button {
   display: inline-block;
   padding: 0.7rem 1.2rem;
