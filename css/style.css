@@ -159,6 +159,7 @@ main {
   flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
   text-align: center; /* Tekst będzie wycentrowany */
   flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
+  padding: 5vw;
 }
 
 .product {
@@ -253,13 +254,13 @@ header p {
 
 /* Druga kolumna - logo */
 .right-column {
+  background: #ffffff;
   text-align: right; /* Logo będzie wyrównane do prawej */
 }
 
 .logo {
   max-width: 100%; /* Zapewnia, że obrazek nie przekroczy szerokości kontenera */
   height: auto;
-  background: #ffffff;
 }
 
 body {
