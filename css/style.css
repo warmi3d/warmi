@@ -257,3 +257,40 @@ main {
   max-height: 90%;
   border-radius: 10px;
 }
+
+
+/* Kontener dla obu kolumn */
+.container {
+  display: flex; /* Ustawiamy elastyczny układ */
+  justify-content: space-between; /* Kolumny mają być rozdzielone na cały dostępny obszar */
+  align-items: center; /* Wyrównanie w pionie na środku */
+  padding: 20px;
+  flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
+}
+
+/* Pierwsza kolumna - tekst */
+.left-column {
+  text-align: center; /* Tekst będzie wycentrowany */
+  flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
+}
+
+/* Druga kolumna - logo */
+.right-column {
+  text-align: right; /* Logo będzie wyrównane do prawej */
+}
+
+.logo {
+  max-width: 100%; /* Zapewnia, że obrazek nie przekroczy szerokości kontenera */
+  height: auto;
+}
+
+/* Dostosowanie na małe ekrany */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Na mniejszych ekranach kolumny będą ustawione pionowo */
+    text-align: center; /* Wyrównanie zawartości na środku */
+  }
+  .right-column {
+    text-align: center; /* Na mniejszych ekranach logo też będzie wycentrowane */
+  }
+}
