@@ -239,6 +239,7 @@ main {
 
 /* Pierwsza kolumna - tekst */
 .left-column {
+  background: #1e90ff;
   text-align: center; /* Tekst będzie wycentrowany */
   flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
 }
@@ -251,19 +252,9 @@ main {
 .logo {
   max-width: 100%; /* Zapewnia, że obrazek nie przekroczy szerokości kontenera */
   height: auto;
+  background: #000000;
 }
 
-/* Dostosowanie na małe ekrany */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Na mniejszych ekranach kolumny będą ustawione pionowo */
-    text-align: center; /* Wyrównanie zawartości na środku */
-  }
-  .right-column {
-    text-align: center; /* Na mniejszych ekranach logo też będzie wycentrowane */
-  }
-}
-/* Ogólne resetowanie i styl podstawowy */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -273,7 +264,6 @@ body {
 }
 
 header {
-  background: #1e90ff;
   color: white;
   padding: 2rem 1rem;
 }
@@ -300,3 +290,16 @@ header p {
 .olx-button:hover {
   background: #e0e0e0;
 }
+
+
+/* Dostosowanie na małe ekrany */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Na mniejszych ekranach kolumny będą ustawione pionowo */
+    text-align: center; /* Wyrównanie zawartości na środku */
+  }
+  .right-column {
+    text-align: center; /* Na mniejszych ekranach logo też będzie wycentrowane */
+  }
+}
+/* Ogólne resetowanie i styl podstawowy */
