@@ -130,8 +130,6 @@ footer {
   }
 }
 
-
-
 header {
   background-color: #ffffff;
   padding: 20px;
@@ -140,7 +138,6 @@ header {
 }
 
 .logo {
-  background: #1e90ff;
   max-height: 80px;
 }
 
@@ -159,7 +156,7 @@ main {
   flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
   text-align: center; /* Tekst będzie wycentrowany */
   flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
-  padding: 5vw;
+  padding: 5rem;
 }
 
 .product {
