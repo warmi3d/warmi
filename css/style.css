@@ -145,19 +145,20 @@ header {
 }
 
 main {
-  display: flex; /* Ustawiamy elastyczny układ */
-  justify-content: space-between; /* Kolumny mają być rozdzielone na cały dostępny obszar */
-  align-items: center; /* Wyrównanie w pionie na środku */
   padding: 20px;
-  flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
-  text-align: center; /* Tekst będzie wycentrowany */
-  flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  
+  display: flex; /* Ustawiamy elastyczny układ */
+  justify-content: space-between; /* Kolumny mają być rozdzielone na cały dostępny obszar */
+  align-items: center; /* Wyrównanie w pionie na środku */
+  flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
+  text-align: center; /* Tekst będzie wycentrowany */
+  flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
 }
 
 .product {
