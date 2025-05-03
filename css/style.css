@@ -20,7 +20,7 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 0.5rem 0.5rem 0.5rem 1rem; /* góra, lewo/prawo, dół */
+  padding: 0.5rem 0.5rem 0.5rem 3rem; /* góra, lewo/prawo, dół */
 }
 
 .product a {
@@ -30,7 +30,7 @@
 
 .product img {
   max-width: 100%;
-  height: 100%;
+  height: 90%;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s ease-in-out;
