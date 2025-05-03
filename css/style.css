@@ -1,16 +1,100 @@
-/* Styl karuzeli */
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+  text-align: center;
 }
 
-.carousel-track {
+header {
+  background: #73c1e0;
+  color: #f7f7f7;
+  padding: 0rem 0rem;
+  text-align: center;
+  border-bottom: 1px solid #000000;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 0.0rem 0 0.2rem;
+}
+
+/* Kontener dla obu kolumn */
+.container {
+  position: relative;
   display: flex;
-  transition: transform 0.4s ease-in-out;
-  width: calc(100% * 1.5); /* sztucznie rozszerzamy, żeby była przestrzeń do przesuwania */
+  justify-content: flex-end; /* Logo po prawej */
+  /*justify-content: space-between; *//* Kolumny mają być rozdzielone na cały dostępny obszar */
+  align-items: center;
+  padding: 0;
+  min-height: 150px; /* Ustalona wysokość nagłówka (lub auto) */
+  flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
+}
+
+/* Pierwsza kolumna - tekst */
+
+.left-column {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /*flex: 1; *//* Ta kolumna będzie zajmować dostępne miejsce */
+}
+
+/* Druga kolumna - logo */
+.right-column {
+  /*background: #ffffff;*/
+  text-align: right; /* Logo będzie wyrównane do prawej */
+  padding: 15px;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+}
+
+.olx-button {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  background: #ffffff;
+  color: #329bd8;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.olx-button:hover {
+  background: #c9c9c9;
+  color: #54acdf;
+}
+
+.product-main {
+  flex: 0 0 25%; /* 4 elementy w rzędzie */
+  box-sizing: border-box;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem; /* góra, lewo/prawo, dół */
+}
+
+.product-main a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-main img {
+  max-width: 100%;
+  height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.5s ease-in-out;
 }
 
 .product {
@@ -19,8 +103,9 @@
   background: white;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 0.5rem 0.5rem 0.5rem 3rem; /* góra, lewo/prawo, dół */
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  padding: 1rem; /* góra, lewo/prawo, dół */
+  margin: 0.5rem;
 }
 
 .product a {
@@ -30,108 +115,20 @@
 
 .product img {
   max-width: 100%;
-  height: 90%;
+  height: 100%;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
-. img:hover {
-  transform: scale(1.03);
+.img:hover {
+  transform: scale(1.05);
 }
 
 .product p {
   margin-top: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #1e90ff;
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 5px;
-  opacity: 0.8;
-  user-select: none;
-}
-
-.carousel-button:hover {
-  opacity: 1;
-}
-
-.carousel-button.prev {
-  left: 10px;
-}
-
-.carousel-button.next {
-  right: 10px;
-}
-
-/* Strona produktu (opcjonalna) */
-.product-detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.product-detail img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-bottom: 1.5rem;
-}
-
-.description {
-  text-align: left;
-}
-
-.description h2 {
-  margin-top: 0;
-}
-
-.back-link {
-  text-decoration: none;
-  color: #1e90ff;
-  font-weight: bold;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
-footer {
-  padding: 1rem;
-  background: #ddd;
-  font-size: 0.9rem;
-}
-
-/* Responsywność */
-@media (max-width: 1024px) {
-  .product {
-    flex: 0 0 33.33%;
-  }
-}
-
-@media (max-width: 768px) {
-  .product {
-    flex: 0 0 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  .product {
-    flex: 0 0 100%;
-  }
 }
 
 main {
@@ -175,7 +172,7 @@ main {
 .carousel-controls {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .carousel-controls button {
   padding: 8px 12px;
@@ -186,6 +183,131 @@ main {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Styl karuzeli */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem 0.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: calc(100% * 1.5); /* ile ma sie miescic w jednym rzedzie */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-40%);
+  background: #1e90ff;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+  opacity: 0.8;
+  user-select: none;
+}
+
+.carousel-button:hover {
+  opacity: 1;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/* Strona produktu (opcjonalna) */
+/*.product-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-detail img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+*/
+.description {
+  text-align: left;
+}
+
+.description h2 {
+  margin-top: 0;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  padding: 1rem;
+  background: #ddd;
+  font-size: 0.9rem;
+}
+
+
+
+
+/* Responsywność */
+@media (max-width: 1024px) {
+  .product {
+    flex: 0 0 33.33%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .product {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Na mniejszych ekranach kolumny będą ustawione pionowo */
+    text-align: center; /* Wyrównanie zawartości na środku */
+    justify-content: center;
+  }
+
+  .right-column {
+    text-align: center; /* Na mniejszych ekranach logo też będzie wycentrowane */
+  }
+
+  .left-column {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+}
+
 #lightbox {
   position: fixed;
   top: 0; left: 0;
@@ -196,89 +318,9 @@ main {
   align-items: center;
   z-index: 1000;
 }
+
 #lightbox img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
 }
-
-header {
-  background: #1e90ff;
-  color: #000000;
-  padding: 2rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-
-header h1 {
-  margin: 0;
-}
-
-header p {
-  margin: 0.5rem 0 1rem;
-}
-
-/* Kontener dla obu kolumn */
-.container {
-  display: flex; /* Ustawiamy elastyczny układ */
-  justify-content: space-between; /* Kolumny mają być rozdzielone na cały dostępny obszar */
-  align-items: center; /* Wyrównanie w pionie na środku */
-  padding: 20px;
-  flex-wrap: wrap; /* Dzięki temu zawartość będzie się dobrze układała na mniejszych ekranach */
-}
-
-/* Pierwsza kolumna - tekst */
-.left-column {
-  text-align: center; /* Tekst będzie wycentrowany */
-  flex: 1; /* Ta kolumna będzie zajmować dostępne miejsce */
-}
-
-/* Druga kolumna - logo */
-.right-column {
-  background: #ffffff;
-  text-align: right; /* Logo będzie wyrównane do prawej */
-  padding: 30px;
-}
-
-.logo {
-  width: 200px;
-  height: auto;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
-  text-align: center;
-}
-  
-.olx-button {
-  display: inline-block;
-  padding: 0.7rem 1.2rem;
-  background: #ffffff;
-  color: #1e90ff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.olx-button:hover {
-  background: #e0e0e0;
-}
-
-
-/* Dostosowanie na małe ekrany */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Na mniejszych ekranach kolumny będą ustawione pionowo */
-    text-align: center; /* Wyrównanie zawartości na środku */
-  }
-  .right-column {
-    text-align: center; /* Na mniejszych ekranach logo też będzie wycentrowane */
-  }
-}
-/* Ogólne resetowanie i styl podstawowy */
